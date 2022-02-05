@@ -1,0 +1,12 @@
+<template>
+  
+        <lightning-card  title="Child Component" icon-name="custom:custom30">
+        Below Details passed from Parent Component.
+        
+        <lightning-input label="firstName" value={firstName} name="fname" onchange={textChangeEvent1}></lightning-input><br>
+       <lightning-input label="lastName" value={lastName} name="lname" onchange={textChangeEvent1}></lightning-input><br>
+
+       <lightning-button label="Update" onclick={updateDetails}></lightning-button>
+
+    </lightning-card>
+</template>

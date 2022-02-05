@@ -1,0 +1,10 @@
+<template>
+    <lightning-card  title="Parent Component" icon-name="custom:custom30">
+
+    <lightning-input label="firstName" value={firstName} name="fname" onchange={textChangeEvent}></lightning-input><br>
+    <lightning-input label="lastName" value={lastName} name="lname" onchange={textChangeEvent}></lightning-input><br>
+
+<c-public-property-component first-name={firstName}  last-name={lastName}> </c-public-property-component>
+
+</lightning-card>
+</template>
