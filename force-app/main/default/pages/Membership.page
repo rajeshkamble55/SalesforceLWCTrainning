@@ -1,0 +1,50 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  
+  <!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8" />
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+<input type="hidden" name="oid" value="00D2w000001Od4q"/>
+<input type="hidden" name="retURL" value="https://rajesh-sk-dev-ed.my.salesforce.com/" />
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="rajeshkamble55@gmail.com">                                       -->
+<!--  ----------------------------------------------------------------------  -->
+
+Name:<input  id="00N2w00000K00v7" maxlength="255" name="00N2w00000K00v7" size="20" type="text" /><br/>
+
+address:<input  id="00N2w00000K00vC" maxlength="255" name="00N2w00000K00vC" size="20" type="text" /><br/>
+
+DOB:<span class="dateInput dateOnlyInput"><input  id="00N2w00000K00vH" name="00N2w00000K00vH" size="12" type="text" /></span><br/>
+
+Amount:<input  id="00N2w00000K00vM" name="00N2w00000K00vM" size="20" type="text" /><br/>
+
+Days in months:<input  id="00N2w00000K00vR" name="00N2w00000K00vR" size="20" type="text" /><br/>
+
+Membership Issued Date:<span class="dateInput dateOnlyInput"><input  id="00N2w00000K00vb" name="00N2w00000K00vb" size="12" type="text" /></span><br/>
+
+<label for="mobile">Mobile</label><input  id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br/>
+
+<input type="submit" name="submit" />
+
+</form>
+
+
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

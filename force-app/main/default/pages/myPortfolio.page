@@ -1,0 +1,486 @@
+<apex:page controller="myPortfolioController" lightningStyleSheets="true" standardStylesheets="true" sidebar="false" showChat="false" showHeader="false" docType="html-5.0" title="Portfolio">
+    <apex:slds />
+       <style>
+        .myFormStyle {
+            background-color: #FDF5C1;
+        }
+    </style>
+   
+        <apex:form id="block"  styleClass="myFormStyle"  >
+            <!-- SPINNER -->
+            <apex:actionStatus id="status" >
+                <apex:facet name="start">
+                    <div class="slds-spinner_container" style="position: fixed;" >
+                        <div role="status" class="slds-spinner slds-spinner--large slds-spinner--brand">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+            <!-- / SPINNER -->
+            <!---------------Statrt Header--->
+            
+            <div class="slds-grid slds-wrap">
+                
+                <div class="slds-col slds-size_12-of-12">
+                    <div class="slds-page-header" style="height: 100%;background-color:#ffcb0b;">
+                        <div class="slds-grid slds-wrap" >
+                            <apex:image id="theImage" value="{!$Resource.ProfilePic}" width="130" height="150" style="border:1px;"  /> 
+                            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" style="white-space: pre;font-size:60px;">RAJESH SHIVAJI KAMBLE</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta" style="white-space: pre;font-size:30px;">(Salesforce Developer)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-----------------END Header----->
+            <!----------------------Start Menu and page--->
+            <apex:panelGroup id="appList"  >
+                
+                <div class="slds-grid slds-wrap"   >
+                    <div class="slds-col slds-size_12-of-12" id='menuToDisplayList' >
+                        <div class="slds-form--stacked slds-p-around--medium slds-m-bottom--x-small slds-box" >
+                            <div class="slds-tabs_default">
+                                
+                                <apex:panelGroup rendered="{!Tab1}">
+                                    <ul class="slds-tabs_default__nav" role="tablist">
+                                        <li class="slds-tabs_default__item slds-is-active" title="Item One" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Home" tabindex="0" action="{!tabAction1}"  html-aria-required="true" html-aria-controls="tab-default-11" id="tab-default-11__item">
+                                                <apex:param name="tab1" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px; font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Work Expirence" tabindex="-1" action="{!tabAction2}"  html-aria-required="true" html-aria-controls="tab-default-12" id="tab-default-12__item">
+                                                <apex:param name="tab2" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+										  <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px; font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Projects" tabindex="-1" action="{!tabAction6}"  html-aria-required="true" html-aria-controls="tab-default-16" id="tab-default-16__item">
+                                                <apex:param name="tab6" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Three" role="presentation">
+                                            <apex:commandLink style="font-size:20px; font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Education" tabindex="-1" action="{!tabAction3}"  html-aria-required="true" html-aria-controls="tab-default-13" id="tab-default-13__item">
+                                                <apex:param name="tab3" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Four" role="presentation">
+                                            <apex:commandLink style="font-size:20px; font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Certificates" tabindex="-1" action="{!tabAction4}"  html-aria-required="true" html-aria-controls="tab-default-14" id="tab-default-14__item">
+                                                <apex:param name="tab4" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Five" role="presentation">
+                                            <apex:commandLink style="font-size:20px; font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Contact" tabindex="-1" action="{!tabAction5}"  html-aria-required="true" html-aria-controls="tab-default-15" id="tab-default-15__item">
+                                                <apex:param name="tab5" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                    </ul>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab2}">
+                                    <ul class="slds-tabs_default__nav" role="tablist">
+                                        <li class="slds-tabs_default__item " title="Item One" role="presentation">
+                                            <apex:commandLink style="font-size:20px;" styleClass="slds-tabs_default__link" value="Home" tabindex="0" action="{!tabAction1}"  html-aria-required="true" html-aria-controls="tab-default-21" id="tab-default-21__item">
+                                                <apex:param name="tab1" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item slds-is-active" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px; font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Work Expirence" tabindex="-1" action="{!tabAction2}"  html-aria-required="true" html-aria-controls="tab-default-22" id="tab-default-22__item">
+                                                <apex:param name="tab2" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+										 <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold; " styleClass="slds-tabs_default__link" value="Projects" tabindex="-1" action="{!tabAction6}"  html-aria-required="true" html-aria-controls="tab-default-26" id="tab-default-26__item">
+                                                <apex:param name="tab6" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Three" role="presentation">
+                                            <apex:commandLink style="font-size:20px;" styleClass="slds-tabs_default__link" value="Education" tabindex="-1" action="{!tabAction3}"  html-aria-required="true" html-aria-controls="tab-default-23" id="tab-default-23__item">
+                                                <apex:param name="tab3" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Four" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Certificates" tabindex="-1" action="{!tabAction4}"  html-aria-required="true" html-aria-controls="tab-default-24" id="tab-default-24__item">
+                                                <apex:param name="tab4" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Five" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Contact" tabindex="-1" action="{!tabAction5}"  html-aria-required="true" html-aria-controls="tab-default-25" id="tab-default-25__item">
+                                                <apex:param name="tab5" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                    </ul>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab3}">
+                                    <ul class="slds-tabs_default__nav" role="tablist">
+                                        <li class="slds-tabs_default__item " title="Item One" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Home" tabindex="0" action="{!tabAction1}"  html-aria-required="true" html-aria-controls="tab-default-31" id="tab-default-31__item">
+                                                <apex:param name="tab1" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Work Expirence" tabindex="-1" action="{!tabAction2}"  html-aria-required="true" html-aria-controls="tab-default-32" id="tab-default-32__item">
+                                                <apex:param name="tab2" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+										 <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Projects" tabindex="-1" action="{!tabAction6}"  html-aria-required="true" html-aria-controls="tab-default-36" id="tab-default-36__item">
+                                                <apex:param name="tab6" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item slds-is-active" title="Item Three" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Education" tabindex="-1" action="{!tabAction3}"  html-aria-required="true" html-aria-controls="tab-default-33" id="tab-default-33__item">
+                                                <apex:param name="tab3" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Four" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Certificates" tabindex="-1" action="{!tabAction4}"  html-aria-required="true" html-aria-controls="tab-default-34" id="tab-default-34__item">
+                                                <apex:param name="tab4" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Five" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Contact" tabindex="-1" action="{!tabAction5}"  html-aria-required="true" html-aria-controls="tab-default-35" id="tab-default-35__item">
+                                                <apex:param name="tab5" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                    </ul>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab4}">
+                                    <ul class="slds-tabs_default__nav" role="tablist">
+                                        <li class="slds-tabs_default__item" title="Item One" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Home" tabindex="0" action="{!tabAction1}"  html-aria-required="true" html-aria-controls="tab-default-41" id="tab-default-41__item">
+                                                <apex:param name="tab1" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Work Expirence" tabindex="-1" action="{!tabAction2}"  html-aria-required="true" html-aria-controls="tab-default-42" id="tab-default-42__item">
+                                                <apex:param name="tab2" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+										 <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Projects" tabindex="-1" action="{!tabAction6}"  html-aria-required="true" html-aria-controls="tab-default-46" id="tab-default-46__item">
+                                                <apex:param name="tab6" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Three" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Education" tabindex="-1" action="{!tabAction3}"  html-aria-required="true" html-aria-controls="tab-default-43" id="tab-default-43__item">
+                                                <apex:param name="tab3" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item slds-is-active" title="Item Four" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Certificates" tabindex="-1" action="{!tabAction4}"  html-aria-required="true" html-aria-controls="tab-default-44" id="tab-default-44__item">
+                                                <apex:param name="tab4" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Five" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Contact" tabindex="-1" action="{!tabAction5}"  html-aria-required="true" html-aria-controls="tab-default-45" id="tab-default-45__item">
+                                                <apex:param name="tab5" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                    </ul>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab5}">
+                                    <ul class="slds-tabs_default__nav" role="tablist">
+                                        <li class="slds-tabs_default__item " title="Item One" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Home" tabindex="0" action="{!tabAction1}"  html-aria-required="true" html-aria-controls="tab-default-51" id="tab-default-51__item">
+                                                <apex:param name="tab1" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Work Expirence" tabindex="-1" action="{!tabAction2}"  html-aria-required="true" html-aria-controls="tab-default-52" id="tab-default-52__item">
+                                                <apex:param name="tab2" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+										 <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Projects" tabindex="-1" action="{!tabAction6}"  html-aria-required="true" html-aria-controls="tab-default-56" id="tab-default-56__item">
+                                                <apex:param name="tab6" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Three" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Education" tabindex="-1" action="{!tabAction3}"  html-aria-required="true" html-aria-controls="tab-default-53" id="tab-default-53__item">
+                                                <apex:param name="tab3" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Four" role="presentation">
+                                            <apex:commandLink style="font-size:20px;" styleClass="slds-tabs_default__link" value="Certificates" tabindex="-1" action="{!tabAction4}"  html-aria-required="true" html-aria-controls="tab-default-54" id="tab-default-54__item">
+                                                <apex:param name="tab4" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item slds-is-active" title="Item Five" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Contact" tabindex="-1" action="{!tabAction5}"  html-aria-required="true" html-aria-controls="tab-default-55" id="tab-default-55__item">
+                                                <apex:param name="tab5" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                    </ul>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab6}">
+                                    <ul class="slds-tabs_default__nav" role="tablist">
+                                        <li class="slds-tabs_default__item " title="Item One" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Home" tabindex="0" action="{!tabAction1}"  html-aria-required="true" html-aria-controls="tab-default-61" id="tab-default-61__item">
+                                                <apex:param name="tab1" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Work Expirence" tabindex="-1" action="{!tabAction2}"  html-aria-required="true" html-aria-controls="tab-default-62" id="tab-default-62__item">
+                                                <apex:param name="tab2" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+										 <li class="slds-tabs_default__item slds-is-active" title="Item Two" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Projects" tabindex="-1" action="{!tabAction6}"  html-aria-required="true" html-aria-controls="tab-default-66" id="tab-default-66__item">
+                                                <apex:param name="tab6" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Three" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Education" tabindex="-1" action="{!tabAction3}"  html-aria-required="true" html-aria-controls="tab-default-63" id="tab-default-63__item">
+                                                <apex:param name="tab3" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item" title="Item Four" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Certificates" tabindex="-1" action="{!tabAction4}"  html-aria-required="true" html-aria-controls="tab-default-64" id="tab-default-64__item">
+                                                <apex:param name="tab4" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li class="slds-tabs_default__item " title="Item Five" role="presentation">
+                                            <apex:commandLink style="font-size:20px;font-family: myFirstFont;src: url(sansation_bold.woff);font-weight: bold;" styleClass="slds-tabs_default__link" value="Contact" tabindex="-1" action="{!tabAction5}"  html-aria-required="true" html-aria-controls="tab-default-65" id="tab-default-65__item">
+                                                <apex:param name="tab5" value="true"/>
+                                            </apex:commandLink>
+                                        </li>
+                                    </ul>
+                                </apex:panelGroup>
+                                
+                                <apex:panelGroup rendered="{!Tab1}" >
+                                    <div style="font-size:15px;" id="tab-default-11" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-11__item">
+                                        A Software Developer having hands-on 2.8 years’ experience of working on
+                                        Salesforce (Apex and Visualforce),<Br/> Salesforce integration with java and
+                                        successfully managed the development of multiple banking/finance
+                                        projects.<Br/> Looking forward to an opportunity for working in a dynamic and
+                                        challenging environment where I can utilize <Br/> my skills for developing my
+                                        career and of the growth of organization.
+                                    </div>
+                                    <div class="slds-table slds-table_cell-buffer slds-table_bordered"></div>
+                                    <article class="slds-card">
+                                        
+                                        <div class="slds-card__header slds-grid">
+                                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                                <div class="slds-media__figure">
+                                                    <svg class="slds-icon slds-icon-text-default slds-icon_small" aria-hidden="true">
+                                                        <use href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#all')}"></use>
+                                                    </svg>
+                                                </div>
+                                                
+                                                <div class="slds-media__body" >
+                                                    <h2 class="slds-card__header-title">
+                                                        <span style="font-size:20px;">Skills</span>
+                                                    </h2>
+                                                </div>
+                                            </header>
+                                        </div>
+                                        <div class="slds-form--stacked slds-p-around--medium slds-m-bottom--x-small slds-box"  style="background-color: #ffcb0b;">
+                                            <span class="slds-badge"  style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span> SFDC </span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Apex Customization</span>										
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Visualforce</span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Apex Triggers</span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>SOQL-SOSL</span>										
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Apex Batch</span><br/><br/>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Work Flow-Porcess Builder </span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>LWC</span>										
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>CPQ</span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Data Loader</span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>API Configuration</span>										
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Deployment</span><br/><br/>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>Test Classes</span>
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>JAVA</span> 
+                                            <span class="slds-badge" style="font-size:15px;"> <span class="slds-badge__icon slds-badge__icon_left"></span>JavaScript-AngularJS</span> 
+                                        </div>
+                                        
+                                        <div class="slds-card__header slds-grid" >
+                                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                                <div class="slds-media__figure">
+                                                    <svg class="slds-icon slds-icon-text-default slds-icon_small" aria-hidden="true">
+                                                        <use href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#desktop_console')}"></use>
+                                                    </svg>
+                                                </div>
+                                                
+                                                <div class="slds-media__body" >
+                                                    <h2 class="slds-card__header-title">
+                                                        <span style="font-size:20px;">Software</span>
+                                                    </h2>
+                                                </div>
+                                            </header>
+                                        </div>
+                                        <div class="slds-form--stacked slds-p-around--medium slds-m-bottom--x-small slds-box" style="background-color: #ffcb0b;">
+                                            <span class="slds-badge" > <span class="slds-badge__icon slds-badge__icon_left"></span><p style="font-size:15px;">NetBeans IDE</p></span>
+                                            <span class="slds-badge" > <span class="slds-badge__icon slds-badge__icon_left"></span><p style="font-size:15px;">Eclispe</p></span>										
+                                            <span class="slds-badge" > <span class="slds-badge__icon slds-badge__icon_left"></span><p style="font-size:15px;">SSMS</p></span>
+                                            <span class="slds-badge" > <span class="slds-badge__icon slds-badge__icon_left"></span><p style="font-size:15px;">SVN</p></span>
+                                            <span class="slds-badge" > <span class="slds-badge__icon slds-badge__icon_left"></span><p style="font-size:15px;">Workbench</p></span>										
+                                        </div>
+                                        
+                                    </article>
+                                </apex:panelGroup>
+								
+                                <apex:panelGroup rendered="{!Tab2}">
+                                    <div id="tab-default-22" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-22__item">
+                                        
+                                        <div id="tab-default-22" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-22__item">
+                                            
+                                            <p style="font-size:20px;"><B>  Cyber Managers Software Services Pvt. Ltd., Malad<Br/>Client-L&#38;T Financial Services, Ghansoli (on site)<Br/> Software Engineer<Br/> </B>29/10/2018 – Present Date </p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">Delivered front-end and back-end architecture and functionality by translating development requirements.</li>
+                                            <li style="font-size:15px;">Updated programs as per user needs and developed codes that were in accordance to specifications.</li>
+                                            <li style="font-size:15px;">Managed client applications through web services with SOAP Protocols and REST Architectural style.</li>
+                                            <li style="font-size:15px;">Developed and documented test cases and scenarios for salesforce platform.</li>
+                                            <li style="font-size:15px;">Delivered Deployment and Testing.</li>
+                                            </ul>  
+                                            <hr/>
+                                            
+                                            <p style="font-size:20px;"><B>  Modern Informatics Pvt. Ltd., Ghansoli<Br/>Client-Government and private Banks<Br/> Testing Engineer<Br/> </B>07/06/2018 – 25/10/2018 </p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">Provided Remote Support IT Infrastructure (Security Support).</li>
+                                            <li style="font-size:15px;">UWe configure all the devices in ATM’s remotely and test the same.</li>
+                                            
+                                            </ul>
+                                            
+                                            <hr/>
+                                            <p style="font-size:20px;"><B>  Onward Technologies Pvt. Ltd., Andheri<Br/>Client-Reliance Industries Ltd., Ghansoli<Br/> Application Support Engineer<Br/> </B>19/11/2016 – 03/06/2018</p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">Configured Hardware, devices and software to setup work station.</li>
+                                            <li style="font-size:15px;">Assessed System hardware and software and suggested modifications to reduce lag time and improve speed.</li>
+                                            <li style="font-size:15px;">Build Application platform foundation to support migration from client server product lines to enterprise architecture and services.</li>
+                                            <li style="font-size:15px;">Device/Software: RPOS, MPOS etc.</li>
+                                            </ul>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </apex:panelGroup>
+								<apex:panelGroup rendered="{!Tab6}">
+                                    <div id="tab-default-22" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-22__item">
+                                        
+                                        <div id="tab-default-22" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-22__item">
+                                            
+                                            <p style="font-size:20px;"><b> Trade Advance Portal – FARM<Br/></b></p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">A one stop portal by L&#38;T Financial Service to map Dealers with Sales , Credit, Operations and LMS team online for
+                                                Financial purpose.<br/> After going live, the estimated time of Loan Disbursement will significantly reduce from days to mere 2 hours which no<br/> other financial org does in the
+market.</li>
+                                            <li style="font-size:15px;">Developed an explicit Utility to create bulk Pre-filled Mandate forms in one go using Java and jQuery.</li>
+                                            <li style="font-size:15px;"><b>Technologies used:</b> Salesforce, Apex, Visualforce, Trigger, Salesforce Integration, Batches.</li>
+                                            <li style="font-size:15px;"><b>Responsibility</b>: Implemented Business logic based on the requirements. Prepared the Unit Tests and Result
+Documents Bug fix,<br/> maintenance, client handling, version tracking.</li>
+                                            </ul>  
+                                            <hr/>	
+                                            
+                                            <p style="font-size:20px;"><B> Valuation Portal – FARM<Br/></B></p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">Portal integrated with 2 agencies(Autoinspekt and Adroit)</li>
+                                            <li style="font-size:15px;">By sharing the basic details of owner and vehicle, we get
+valuation report from respective agency. In case one
+agency Rejected<br/> Application it will process through other
+agency automatically by portal.</li>
+                                    <li style="font-size:15px;"><b>Technologies used</b>: Salesforce, Apex, Visualforce, Trigger,
+Salesforce Integration.</li>
+                                            <li style="font-size:15px;"><b>Responsibility</b>: Implemented business Logic baes on the
+requirements. Prepared the Unit Tests &#38; Result Documents
+bug fix,<br/> maintenance, client handling, version tracking. </li>        
+                                            </ul>
+                                            
+                                            <hr/>
+                                            <p style="font-size:20px;"><B> Dedupe RC LOS Integration API<Br/></B></p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">Developed REST Service, which receives a List of RC
+Numbers and serves details for which Application these
+RC Generated with <br/>exist Status in response.</li>
+                                            <li style="font-size:15px;">Bug fix, deployment, maintenance, client handling.</li>
+                                            <li style="font-size:15px;"><b>Technologies used</b>: Salesforce Integration, Apex with REST
+Service.</li>
+                                           
+                                            </ul>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab3}">
+                                    <div id="tab-default-33" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-33__item">
+                                        
+                                        <div id="tab-default-33" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-33__item">
+                                            
+                                            <p style="font-size:20px;"><B> Vidyaverdhini’s Collage of Engineering and Technology, Vasai<Br/></B>2011 – 2015 </p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;"><B>Project</B>: Secure hidden network capable of detecting spam zombies and Anomalies.</li>
+                                            <li style="font-size:15px;">Has successfully completed Certification of Microsoft Technology Associate: Database Administration Fundamentals.</li>
+                                            </ul>  
+                                            <hr/>
+                                            
+                                            <p style="font-size:20px;"><b> HSC </b> from <b>MH-state-Kolhapur-Divisional Board </b>in <b>2011 with 51%.</b></p>
+                                            <br/> 
+                                            <p style="font-size:20px;"><b> SSC </b> from <b>MH-state-Kolhapur-Divisional Board </b>in <b>2009 with 53%.</b></p>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab4}">
+                                    <div id="tab-default-44" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-44__item">
+                                        <p style="font-size:15px;"> Coming soon....</p>
+                                    </div>
+                                </apex:panelGroup>
+                                <apex:panelGroup rendered="{!Tab5}">
+                                    <div id="tab-default-55" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-55__item">
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_6-of-12">
+                                                <p style="font-size:20px;" class="slds-page-header__name-meta"><apex:image id="theImage1" value="{!$Resource.emailIcon}" width="20" height="20" style="border:1px;" />&nbsp;&nbsp; rajeshkamble55@gmail.com </p><br/>
+                                                <p style="font-size:20px;" class="slds-page-header__name-meta"><apex:image id="theImage2" value="{!$Resource.MobileIcon}" width="20" height="20" style="border:1px;" />&nbsp;&nbsp; 9021855598 </p><br/>
+                                                <p style="font-size:20px;" class="slds-page-header__name-meta"><apex:image id="theImage5" value="{!$Resource.locationIcon}" width="20" height="20" style="border:1px;" />&nbsp;&nbsp; Navi Mumbai, MH, India </p>
+                                                <hr/>
+                                                
+                                                <p style="font-size:20px;"><B> LANGUAGES<Br/></B></p>
+                                            <br/> <ul class="slds-list_dotted">
+                                            <li style="font-size:15px;">English</li>
+                                            <li style="font-size:15px;">Hindi</li>
+                                            <li style="font-size:15px;">Marathi</li>
+                                            </ul>
+                                                
+                                            <br/>   <p style="font-size:20px;"><B> DATE OF BIRTH<Br/></B></p>
+                                            <br/> <ul class="slds-list_dotted">
+                                                <li style="font-size:15px;">02/07/1994</li>
+                                            </ul>
+                                                
+                                            </div>
+                                            <div class="slds-col slds-size_6-of-12">
+                                                
+                                                <p class="slds-page-header__name-meta" style="font-size:20px;"><apex:image id="theImage3" value="{!$Resource.profileIcon}" width="20" height="20" style="border:1px;" />&nbsp;&nbsp;<a target="_blank" href="https://trailblazer.me/id/rajeshsk90">trailblazer.me</a> </p><br/>
+                                                <p class="slds-page-header__name-meta" style="font-size:20px;"><apex:image id="theImage4" value="{!$Resource.linkedinIcon}" width="20" height="20" style="border:1px;" />&nbsp;&nbsp;<a target="_blank" href="linkedin.com/in/rajesh-kamble-1a195bb3"> linkedin.com </a></p><br/>
+                                                    <p class="slds-page-header__name-meta" style="font-size:20px;"><apex:image id="theImage6" value="{!$Resource.githubIcon}" width="20" height="20" style="border:1px;" />&nbsp;&nbsp;<a target="_blank" href="https://github.com/rajeshkamble55"> github.com</a> </p>
+                                                <hr/>
+                                                
+                                                <p style="font-size:20px;"><B> OTHER INTERESTS<Br/></B></p>
+                                            <br/> <ul class="slds-list_dotted">
+                                                <li style="font-size:15px;">3D Modeling(Blender)</li>
+                                                <li style="font-size:15px;">Drawing #38; Painting</li>
+                                                <li style="font-size:15px;">Listening Music</li>
+                                                <li style="font-size:15px;">Playing out door games</li>
+                                                </ul><br/><br/><br/>
+                                                  <p style="font-size:20px;color:red;"><B><a  target="_blank" href="{!URLFOR($Resource.resumePDF)}"> Download Resume</a><Br/></B></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </apex:panelGroup>
+                            </div>  
+                        </div>
+                        <div class="Seprator"> &nbsp; </div>
+                    </div>
+                </div>
+            </apex:panelGroup>
+        </apex:form>
+    
+</apex:page>
