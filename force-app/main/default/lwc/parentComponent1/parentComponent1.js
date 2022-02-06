@@ -3,7 +3,7 @@ import { LightningElement } from 'lwc';
 export default class ParentComponent1 extends LightningElement {
     firstName;
     lastName;
-
+    contacts;
 textChangeEvent(event)
 {
     if(event.target.name == 'fname')
@@ -14,6 +14,13 @@ textChangeEvent(event)
     {
         this.lastName = event.target.value;
     }
+}
+
+
+callContactEvent(event)
+{
+    console.log('here'+event.detail);
+this.contacts = event.detail;
 }
 
 }
