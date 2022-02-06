@@ -6,6 +6,8 @@ export default class PublicPropertyComponent extends LightningElement
 
     @api lastName;
     
+    dataFromParent;
+    
     textChangeEvent1(event)
 {
     if(event.target.name == 'fname')
@@ -17,6 +19,11 @@ export default class PublicPropertyComponent extends LightningElement
         this.lastName = event.target.value;
     }
 }
+
+@api selectedValues(dataValue)
+    {
+this.dataFromParent = dataValue;
+    }
 
    
 

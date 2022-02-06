@@ -16,11 +16,20 @@ textChangeEvent(event)
     }
 }
 
-
+//call from child component
 callContactEvent(event)
 {
     console.log('here'+event.detail);
 this.contacts = event.detail;
 }
+
+//to call child public function 
+callFunction()
+{
+    const childcopo = this.template.querySelector('c-public-property-component');
+    const call = childcopo.selectedValues(this.firstName);
+    
+}
+
 
 }

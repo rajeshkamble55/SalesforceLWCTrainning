@@ -4,6 +4,9 @@
     <lightning-input label="firstName" value={firstName} name="fname" onchange={textChangeEvent}></lightning-input><br>
     <lightning-input label="lastName" value={lastName} name="lname" onchange={textChangeEvent}></lightning-input><br>
 
+<lightning-button onclick={callFunction} label="pass name to child" ></lightning-button>
+
+
 <c-public-property-component first-name={firstName}  last-name={lastName}> </c-public-property-component>
 
 
