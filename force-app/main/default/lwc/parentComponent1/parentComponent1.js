@@ -1,9 +1,12 @@
 import { LightningElement } from 'lwc';
 
+import {getDiscount} from 'c/customJSLibrary';
 export default class ParentComponent1 extends LightningElement {
     firstName;
     lastName;
     contacts;
+
+    importtedText;
 textChangeEvent(event)
 {
     if(event.target.name == 'fname')
@@ -14,6 +17,12 @@ textChangeEvent(event)
     {
         this.lastName = event.target.value;
     }
+}
+
+constructor()
+{
+    super();
+    this.importtedText = getDiscount('abc'); 
 }
 
 //call from child component
