@@ -29,6 +29,13 @@
                 <lightning-button class="slds-m-left_x-small" label="Create Account" variant="brand" 
                     onclick={createAccount}></lightning-button>
             </lightning-layout-item>
+
+            <lightning-layout-item size="6"> 
+               Details Here :
+                <lightning-formatted-text value={refName}></lightning-formatted-text>
+                <lightning-formatted-text value={refAccountNo}></lightning-formatted-text>
+                <lightning-formatted-text value={refPhone}></lightning-formatted-text>
+            </lightning-layout-item>
         </lightning-layout>
     </lightning-card>
 </template>
