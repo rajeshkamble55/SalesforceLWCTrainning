@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Account Create" label="Create Account Form">
+
+        <lightning-record-form mode="view" column="1" record-id={recordId}   layout-type="Full"
+        object-api-name="Account"  onsuccess={formHandler}>
+            
+        </lightning-record-form>
+        </lightning-card>
+
+   <!-- <lightning-layout> fields={fieldArray}
+        <lightning-layout-item size="6">
+            <lightning-card title="Account Create" label="Create Account Form">
+                <lightning-record-edit-form object-api-name="Account" onsuccess={formHandler}>
+                    <lightning-input-field field-name="Name" label="Account Name"></lightning-input-field>
+                    <lightning-input-field field-name="Phone" label="phone"></lightning-input-field><br>
+                    <lightning-button type="submit" name="save" variant="brand" label="Create"></lightning-button>
+                </lightning-record-edit-form>
+            </lightning-card>
+        </lightning-layout-item>
+
+
+        <lightning-layout-item size="6">
+            <lightning-card title="Account Details" label="Details">
+                <lightning-record-view-form record-id={recordId} object-api-name="Account">
+                    <div class="slds box">
+                        <p>
+                            <lightning-output-field field-name="Name"></lightning-output-field>
+                            <lightning-output-field field-name="Phone"></lightning-output-field>
+                        </p>
+                    </div>
+                </lightning-record-view-form>
+            </lightning-card>
+        </lightning-layout-item>
+
+    </lightning-layout>
+
+-->
+</template>
