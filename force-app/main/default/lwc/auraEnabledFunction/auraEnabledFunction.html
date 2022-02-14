@@ -1,0 +1,21 @@
+<template>
+
+    <lightning-input label="Enter No of record to pull" value={noOfRecords} onchange={onChangeEventHandler}>
+        </lightning-input>
+        <br>
+        <lightning-button label="GetAccounts" onclick={getAccountsOnclick}></lightning-button>
+    <template if-true={responseRecieved}>
+       
+        <template for:each={accounts} for:item="account">
+            <p key={account.Id}  >
+                <lightning-card title={account.Name} name={account.Id} icon-name="custom:custom30" onclick={onClickEventHnadler}>
+                    Phone No : {account.Phone}
+                </lightning-card>
+
+            </p>
+
+        </template>
+
+
+    </template>
+</template>
