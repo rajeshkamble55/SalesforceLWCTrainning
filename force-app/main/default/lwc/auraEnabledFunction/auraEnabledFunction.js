@@ -2,6 +2,10 @@ import { LightningElement, wire } from 'lwc';
 
 import getAccounts from '@salesforce/apex/AuraEnabledFunction.getAccounts';
 
+
+//import for tost event
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
 export default class AuraEnabledFunction extends LightningElement {
 
   //  @wire(getAccounts)
@@ -26,7 +30,12 @@ export default class AuraEnabledFunction extends LightningElement {
             console.log('here');
             getAccounts({noOfRecords:this.noOfRecords}).then( response =>
                 {
-                    console.log('in res');
+                    const toastEvnt = new ShowToastEvent({
+                        title :'success',
+                        message :this.noOfRecords +' records showing below.',
+                        variant :'success'
+                    });
+this.dispatchEvent(toastEvnt);
                     this.accounts = response;
                 }
             ).error(error =>{
